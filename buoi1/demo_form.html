@@ -58,7 +58,7 @@
             </div>
         </nav>
         <div class="row mt-4">
-            <aside class="col-3 bg-primary pt-3">
+            <aside class="col-3 pt-3">
                 <div class="card">
                     <div class="card-header">Hãng điện thoại bán chạy</div>
                     <ul class="list-group">
@@ -74,42 +74,48 @@
                     </ul>
                 </div>
             </aside>
-            <article class="col-9 bg-info pt-3">
+            <article class="col-9 pt-3">
                 <div class="container">
                     <div class="row">
-                        <div class="col-4">
-                            <div class="card">
-                                <img class="card-img-top"
-                                    src="https://uqoojcos5nobj.vcdn.cloud/uploads/2021/11/nokia-black-300x300.jpg" >
-                                <div class="card-body">
-                                    <h5 class="card-title">Nokia đen trắng</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                        <form class="" action="" method="">
+                            <div class="row mt-2">
+                                <label class="col-2">Họ Tên</label>
+                                <div class="col-10">
+                                    <input type="text" class="form-control"
+                                        name="full_name" autocomplete="off" />
+                                    <span class="text-danger">Error Message</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img class="card-img-top"
-                                    src="https://uqoojcos5nobj.vcdn.cloud/uploads/2021/11/nokia-black-300x300.jpg" >
-                                <div class="card-body">
-                                    <h5 class="card-title">Nokia đen trắng</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+
+                            <div class="row mt-2">
+                                <label class="col-2">Email</label>
+                                <div class="col-10">
+                                    <input type="email" class="form-control"
+                                        name="email" autocomplete="off" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <img class="card-img-top"
-                                    src="https://uqoojcos5nobj.vcdn.cloud/uploads/2021/11/nokia-black-300x300.jpg" >
-                                <div class="card-body">
-                                    <h5 class="card-title">Nokia đen trắng</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+
+                            <div class="row mt-2">
+                                <label class="col-2">Mật khẩu</label>
+                                <div class="col-10">
+                                    <input type="password" class="form-control"
+                                        name="password" autocomplete="off" />
                                 </div>
                             </div>
-                        </div>
+
+                            <div class="row mt-2">
+                                <label for="" class="col-2">Chuyên ngành</label>
+                                <div class="col-10">
+                                    <select name="chuyen_nganh" class="form-select">
+                                        <option value="udpm">UDPM</option>
+                                        <option value="tktw">TKTW</option>
+                                        <option value="ltmt">LTMT</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="mt-2">Submit</button>
+                        </form>
                     </div>
                 </div>
             </article>
