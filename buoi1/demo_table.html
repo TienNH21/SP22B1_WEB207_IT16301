@@ -77,9 +77,70 @@
             <article class="col-9 pt-3">
                 <div class="container">
                     <div class="row">
-                        <button class="btn btn-success col-2">Thêm mới</button>
-                        <div class="card">
-                            <div class="card-header">Danh sách khách hàng</div>
+                        <div class="col-2 ps-0">
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_create">
+                                Thêm mới
+                            </button>
+                            <!-- Modal Thêm mới -->
+                            <div class="modal fade" id="modal_create" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <form class="" action="" method="">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Thêm mới sinh viên</h5>
+                                                <button type="button" class="btn-close"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row mt-2">
+                                                    <label class="col-3">Họ Tên</label>
+                                                    <div class="col-9">
+                                                        <input type="text" class="form-control"
+                                                            name="full_name" autocomplete="off" />
+                                                        <span class="text-danger">Error Message</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-2">
+                                                    <label class="col-3">Email</label>
+                                                    <div class="col-9">
+                                                        <input type="email" class="form-control"
+                                                            name="email" autocomplete="off" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-2">
+                                                    <label class="col-3">Mật khẩu</label>
+                                                    <div class="col-9">
+                                                        <input type="password" class="form-control"
+                                                            name="password" autocomplete="off" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-2">
+                                                    <label for="" class="col-3">Chuyên ngành</label>
+                                                    <div class="col-9">
+                                                        <select name="chuyen_nganh" class="form-select">
+                                                            <option value="udpm">UDPM</option>
+                                                            <option value="tktw">TKTW</option>
+                                                            <option value="ltmt">LTMT</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Modal Thêm mới -->
+                        </div>
+                        <div class="card p-0 mt-2">
+                            <div class="card-header">Danh sách sinh viên</div>
                             <div class="table-responsive mt-2 p-0">
                                 <table class="table text-nowrap">
                                     <thead>
@@ -137,7 +198,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="card-footer">3 khách hàng</div>
+                            <div class="card-footer">3 sinh viên</div>
                         </div>
                     </div>
                 </div>
