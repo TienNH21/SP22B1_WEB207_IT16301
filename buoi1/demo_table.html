@@ -28,7 +28,31 @@
     </div> -->
 
     <div class="container">
-        <header class="row bg-danger"></header>
+        <header class="row">
+            <div id="carousel_control" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block img-fluid w-100" src="https://www.w3schools.com/howto/img_snow_wide.jpg">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid w-100" src="https://www.w3schools.com/w3images/workbench.jpg">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid w-100" src="https://wowslider.com/sliders/demo-37/data1/images/waterandmountains.jpg">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button"
+                    data-bs-target="#carousel_control" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button"
+                    data-bs-target="#carousel_control" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">IT16301</a>
@@ -69,13 +93,26 @@
                             <a href="https://www.nokia.com/">Samsung</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="https://www.nokia.com/">Apple</a>
+                            <a href="https://www.nokia.com/">
+                                Apple
+                                <span class="badge bg-danger"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    title="Siêu hot">
+                                    Hot
+                                </span>
+                            </a>
                         </li>
                     </ul>
                 </div>
             </aside>
             <article class="col-9 pt-3">
                 <div class="container">
+                    <div class="row">
+                        <div class="alert alert-success">
+                            Thêm mới thành công
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-2 ps-0">
                             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_create">
@@ -140,8 +177,18 @@
                             <!-- End Modal Thêm mới -->
                         </div>
                         <div class="card p-0 mt-2">
-                            <div class="card-header">Danh sách sinh viên</div>
-                            <div class="table-responsive mt-2 p-0">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-6">Danh sách sinh viên</div>
+                                    <div class="col-6">
+                                        <button class="btn btn-default offset-9 col-3"
+                                            data-bs-toggle="collapse" data-bs-target="#tbl_sv">
+                                            Mở rộng
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive mt-2 p-0 collapse" id="tbl_sv">
                                 <table class="table text-nowrap">
                                     <thead>
                                         <td>STT</td>
@@ -198,7 +245,30 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="card-footer">3 sinh viên</div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-6">...</div>
+                                    <div class="col-6">
+                                        <ul class="pagination justify-content-end">
+                                            <li class="page-item">
+                                                <a href="#" class="page-link"><<</a>
+                                            </li>
+
+                                            <li class="page-item">
+                                                <a href="#" class="page-link">1</a>
+                                            </li>
+
+                                            <li class="page-item">
+                                                <a href="#" class="page-link">2</a>
+                                            </li>
+
+                                            <li class="page-item">
+                                                <a href="#" class="page-link">>></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
