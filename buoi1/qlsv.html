@@ -30,7 +30,11 @@
             <div class="spinner-border text-primary spinner-center" role="status">
             </div>
         </div>
-        <form ng-submit=""
+        <div class="col-8 offset-2 alert {{ isSuccess == true ? 'alert-success' : 'alert-danger' }}"
+            ng-show="message.length != 0">
+            {{ message }}
+        </div>
+        <form ng-submit="onSubmitForm($event)"
             action=""
             class="col-8 offset-2">
             <div class="form-group mt-3">
@@ -79,9 +83,9 @@
                         <td>
                             <button class="btn btn-danger"
                                 data-bs-toggle="modal"
-                                data-bs-target="#">Xóa</button>
+                                data-bs-target="#modal_delete_{{ sv.id }}">Xóa</button>
 
-                            <div class="modal fade" id=""
+                            <div class="modal fade" id="modal_delete_{{ sv.id }}"
                                 tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
@@ -97,7 +101,7 @@
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Đóng</button>
                                             <button type="button"
-                                                ng-click=""
+                                                ng-click="onDelete(sv.id, $index)"
                                                 class="btn btn-danger">Xóa</button>
                                         </div>
                                     </div>
@@ -107,6 +111,13 @@
                     </tr>
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">{{ i }}</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
     <script src="js/angularjs.min.js"></script>
@@ -118,6 +129,8 @@
         app.controller("myctrl", function ($scope, $http) {
             // Khởi tạo
             $scope.students = [];
+            $scope.isSuccess = true;
+            $scope.message = "";
             $scope.student = {
                 id: "",
                 name: "",
@@ -127,6 +140,65 @@
             $scope.isLoading = false;
             const api = 'https://620b061fbeee430017f38481.mockapi.io/students';
 
+            $scope.isLoading = true;
+            $http.get(api) // Gửi 1 request dạng GET lên API
+                .then(function (response) {
+                    $scope.students = response.data;
+                    $scope.totalPage = Math.ceil($scope.students.length / 10);
+                    $scope.isLoading = false;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    $scope.isLoading = false;
+                });
+
+            // TODO
+            // if (index == -1) {
+            //     // them moi
+            // } else {
+            //     // cap nhat
+            // }
+
+            $scope.onSubmitForm = function (event) {
+                event.preventDefault();
+
+                $scope.isLoading = true;
+                // Gửi request dạng POST kèm data lên API
+                $http.post(api, $scope.student)
+                    .then(function (response) {
+                        // Tắt loading
+                        $scope.isLoading = false;
+
+                        // Thông báo
+                        $scope.message = "Thêm mới thành công";
+                        $scope.isSuccess = true;
+
+                        // Thêm vào bảng
+                        $scope.students.push(response.data);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                        $scope.isLoading = false;
+                        $scope.message = "Thêm mới thất bại";
+                        $scope.isSuccess = false;
+                    });
+            }
+
+            $scope.onDelete = function (id, index) {
+                console.log(id);
+                const deleteAPI = api + '/' + id;
+                $scope.isLoading = true;
+                $http.delete(deleteAPI)
+                    .then(function (response) {
+                        $scope.isLoading = false;
+                        console.log("Xóa thành công");
+                        $scope.students.splice(index, 1);
+                        // splice -> xóa trong $scope.students
+
+                        $("#modal_delete_" + id).modal('hide');
+                    })
+                    .catch(function (error) {})
+            }
         });
     </script>
 
